@@ -29,6 +29,9 @@ var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 var HTMLskillsStart = '<h3 id="skillsH3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
+
+
+
 var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
 var HTMLworkTitle = ' - %data%</a>';
@@ -64,10 +67,12 @@ The International Name challenge in Lesson 2 where you'll create a function that
 */
 $(document).ready(function() {
   $('button').click(function() {
-    var iName = inName() || function(){};
+    var iName = inName("mohamed harbouj") || function(){};
     $('#name').html(iName);  
   });
 });
+
+
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
@@ -85,7 +90,10 @@ function logClicks(x,y) {
 }
 
 $(document).click(function(loc) {
-  // your code goes here!
+  var x = loc.pageX,
+      y = loc.pageY;
+
+      logClicks(x,y);
 });
 
 
