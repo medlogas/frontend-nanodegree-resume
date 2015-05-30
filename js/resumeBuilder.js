@@ -84,7 +84,18 @@ var bio = {
 
 	display : function(){
 		$("#header").prepend(HTMLheaderRole.replace("%data%", bio.Role))
-            		.prepend(HTMLheaderName.replace("%data%", bio.name));
+            		.prepend(HTMLheaderName.replace("%data%", bio.name))
+            		.append(HTMLbioPic.replace("%data%",bio.picture))
+            		.append(HTMLwelcomeMsg.replace("%data%",bio.WelcomeMessage))
+            		.append(HTMLskillsStart);
+
+        for (contact in bio.contacts)
+        	$("#topContacts").append(HTMLcontactGeneric.replace("%data%", bio.contacts[contact]).replace("%contact%", contact));
+
+
+        for(skill in bio.skills) {
+        	$("#skills").append(HTMLskills.replace("%data%",bio.skills[skill]));
+        }
 	}
 }
 
