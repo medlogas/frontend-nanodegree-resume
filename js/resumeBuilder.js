@@ -22,12 +22,40 @@ var educations = {
 
 	"onlineCourses" : [
 		{
-			"title" : "HTML",
+			"title" : "Javascript Basics",
 			"school" : "Udacity",
 			"date" : 2014,
 			"url"  : "http://www.udacity.com"
+		},
+
+		{
+			"title" : "HTML",
+			"school" : "Udacity",
+			"date" : 2013,
+			"url"  : "http://www.udacity.com"
 		}
-	]
+	],
+
+	display : function() {
+		for (school in educations.schools) {
+			var FormattedNameDegree = HTMLschoolName.replace("%data%", educations.schools[school].name) + HTMLschoolDegree.replace("%data%", educations.schools[school].degree);
+			$("#education").append(HTMLschoolStart);
+			$(".education-entry:last").append(FormattedNameDegree)
+									  .append(HTMLschoolDates.replace("%data%", educations.schools[school].date))
+									  .append(HTMLschoolLocation.replace("%data%", educations.schools[school].location));
+			for (index in educations.schools[school].majors)
+				$(".education-entry:last").append(HTMLschoolMajor.replace("%data%", educations.schools[school].majors[index]));
+		}
+
+		$("#education").append(HTMLonlineClasses);
+		for (course in educations.onlineCourses){
+			var formattedTitleSchool = HTMLonlineTitle.replace("%data%", educations.onlineCourses[course].title) + HTMLonlineSchool.replace("%data%", educations.onlineCourses[course].school);
+			$("#education").append(HTMLonlineStart);
+			$(".course-entry:last").append(formattedTitleSchool)
+								   .append(HTMLonlineDates.replace("%data%", educations.onlineCourses[course].date))
+								   .append(HTMLonlineURL.replace("%data%", educations.onlineCourses[course].url));
+		}
+	}
 }
 
 
@@ -124,11 +152,14 @@ projects.display = function () {
 	
 }
 
+// Display Resume Section Methods :
 projects.display();
 work.display();
 bio.display();
+educations.display();
 
 
+// Lesson 2 Javascript Basic Exercise :
 function inName(name) {
 	name = name.trim().split(" ");
 	name[1] = name[1].toUpperCase();
