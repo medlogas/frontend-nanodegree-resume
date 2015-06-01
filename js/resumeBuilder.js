@@ -157,7 +157,7 @@ projects.display();
 work.display();
 bio.display();
 educations.display();
-
+$("#mapDiv").append(googleMap);
 
 // Lesson 2 Javascript Basic Exercise :
 function inName(name) {
