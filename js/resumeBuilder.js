@@ -117,9 +117,12 @@ var bio = {
             		.append(HTMLwelcomeMsg.replace("%data%",bio.WelcomeMessage))
             		.append(HTMLskillsStart);
 
-        for (contact in bio.contacts)
+        for (contact in bio.contacts) {
         	$("#topContacts").append(HTMLcontactGeneric.replace("%data%", bio.contacts[contact]).replace("%contact%", contact));
+        	// Footer
+            $("#footerContacts").append(HTMLcontactGeneric.replace("%data%", bio.contacts[contact]).replace("%contact%", contact));
 
+        }
 
         for(skill in bio.skills) {
         	$("#skills").append(HTMLskills.replace("%data%",bio.skills[skill]));
